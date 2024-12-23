@@ -13,6 +13,7 @@ import com.example.chapapp_compose.BottomBarScreen
 import com.example.chapapp_compose.GeneralScreen
 import com.example.chapapp_compose.ScreenContent
 import com.example.chapapp_compose.features_ui.auth.signin.GoogleAuthUiClient
+import com.example.chapapp_compose.features_ui.cart.CartScreen
 import com.example.chapapp_compose.features_ui.detail.DetailScreen
 import com.example.chapapp_compose.features_ui.home.HomeScreen
 import com.example.chapapp_compose.features_ui.profile.ProfileScreen
@@ -47,6 +48,13 @@ fun MainNavGraph(
                 userData = googleAuthUiClient.getSignedInUser(),
                 onSignOut = onSignOut,
                 onGoBack = {}
+            )
+        }
+        composable(BottomBarScreen.Cart.route) {
+            CartScreen(
+                navigateToDetail = { productId ->
+                    navController.navigate(GeneralScreen.DetailProduct.createRoute(productId))
+                }
             )
         }
         composable(route = BottomBarScreen.Settings.route){

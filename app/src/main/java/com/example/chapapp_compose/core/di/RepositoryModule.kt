@@ -1,9 +1,12 @@
 package com.example.chapapp_compose.core.di
 
+import com.example.chapapp_compose.core.data.datasource.local.db.AppDatabase
 import com.example.chapapp_compose.core.data.datasource.remote.ApiService
 import com.example.chapapp_compose.core.data.repository.auth.AuthRepositoryImpl
+import com.example.chapapp_compose.core.data.repository.product.DbProductRepositoryImpl
 import com.example.chapapp_compose.core.data.repository.product.ProductRepositoryImpl
 import com.example.chapapp_compose.core.domain.repository.auth.AuthRepository
+import com.example.chapapp_compose.core.domain.repository.product.DbProductRepository
 import com.example.chapapp_compose.core.domain.repository.product.ProductRepository
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
@@ -20,6 +23,12 @@ object RepositoryModule {
     @Singleton
     fun provideProductRepository(apiService: ApiService): ProductRepository {
         return ProductRepositoryImpl(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDbProductRepository(db: AppDatabase): DbProductRepository {
+        return DbProductRepositoryImpl(db)
     }
 
     @Provides
