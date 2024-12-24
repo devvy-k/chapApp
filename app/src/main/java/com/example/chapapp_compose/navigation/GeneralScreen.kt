@@ -1,4 +1,4 @@
-package com.example.chapapp_compose
+package com.example.chapapp_compose.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home

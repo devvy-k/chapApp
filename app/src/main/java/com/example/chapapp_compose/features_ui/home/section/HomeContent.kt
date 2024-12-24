@@ -44,7 +44,6 @@ fun HomeContent(
                         )
                     }
                 },
-                contentPadding = PaddingValues(8.dp)
             )
             if (listProduct.isEmpty()) EmptyProduct()
         } else EmptyProduct()

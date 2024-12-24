@@ -102,9 +102,6 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 
-    // pager
-    implementation("com.google.accompanist:accompanist-pager:0.28.0")
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
 
     // firebase
     implementation("com.google.android.gms:play-services-auth:21.2.0")
@@ -113,6 +110,11 @@ dependencies {
 
     // Constraint Layout
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    // accompanist
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 }
 
 // Allow references to generated code

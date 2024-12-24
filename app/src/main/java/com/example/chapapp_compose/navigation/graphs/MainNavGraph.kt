@@ -1,6 +1,7 @@
-package com.example.chapapp_compose.navigation.model.graphs
+package com.example.chapapp_compose.navigation.graphs
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -9,17 +10,15 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.chapapp_compose.BottomBarScreen
-import com.example.chapapp_compose.GeneralScreen
-import com.example.chapapp_compose.ScreenContent
+import com.example.chapapp_compose.navigation.BottomBarScreen
+import com.example.chapapp_compose.navigation.GeneralScreen
+import com.example.chapapp_compose.features_ui.ScreenContent
 import com.example.chapapp_compose.features_ui.auth.signin.GoogleAuthUiClient
 import com.example.chapapp_compose.features_ui.cart.CartScreen
 import com.example.chapapp_compose.features_ui.detail.DetailScreen
 import com.example.chapapp_compose.features_ui.home.HomeScreen
 import com.example.chapapp_compose.features_ui.profile.ProfileScreen
 import com.example.chapapp_compose.features_ui.search.SearchScreen
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 
 @Composable
@@ -30,9 +29,9 @@ fun MainNavGraph(
     onSignOut: () -> Unit
 ) {
     NavHost(
+        modifier = Modifier.padding(innerPadding).consumeWindowInsets(innerPadding),
         navController = navController,
         startDestination = BottomBarScreen.Home.route,
-        modifier = Modifier.padding(innerPadding),
         route = Graph.MAIN
     ){
         composable(route = BottomBarScreen.Home.route){

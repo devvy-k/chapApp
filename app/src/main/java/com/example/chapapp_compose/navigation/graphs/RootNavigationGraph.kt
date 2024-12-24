@@ -1,12 +1,10 @@
-package com.example.chapapp_compose.navigation.model.graphs
+package com.example.chapapp_compose.navigation.graphs
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.chapapp_compose.MainScreen
+import com.example.chapapp_compose.navigation.MainScreen
 import com.example.chapapp_compose.features_ui.auth.signin.GoogleAuthUiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

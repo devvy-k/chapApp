@@ -41,11 +41,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.chapapp_compose.CustomTextField
+import com.example.chapapp_compose.features_ui.component.molecules.CustomTextField
 import com.example.chapapp_compose.R
 import com.example.chapapp_compose.features_ui.component.molecules.CustomBox
-import com.example.chapapp_compose.navigation.model.graphs.AuthScreen
-import com.example.chapapp_compose.navigation.model.graphs.Graph
+import com.example.chapapp_compose.navigation.graphs.AuthScreen
+import com.example.chapapp_compose.navigation.graphs.Graph
 
 @Composable
 fun SignUpScreen(

@@ -41,9 +41,9 @@ fun DetailContent(
     viewModel: DetailViewModel,
 ) {
     val context = LocalContext.current
-    val strBuy = "BUY"
-    val strAddedToCart = "ADD TO CART"
-    val strThanks = "Thanks for your purchase!"
+    val strBuy = "ACHETER"
+    val strAddedToCart = "Ajouter au panier"
+    val strThanks = "Achat effectué avec succès!"
     val productId = product.id?.toLong() ?: -1
     var buyText by remember { mutableStateOf(strBuy) }
     var isAlreadyOnCart by remember { mutableStateOf(false) }
@@ -85,7 +85,7 @@ fun DetailContent(
             }
             if (!isAlreadyOnCart) {
                 Text(
-                    text = "ADD TO CART",
+                    text = "Ajouter au panier",
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.secondary)
                         .fillMaxWidth()

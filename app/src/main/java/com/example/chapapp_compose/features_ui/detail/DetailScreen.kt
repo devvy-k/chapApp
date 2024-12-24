@@ -35,7 +35,7 @@ fun DetailScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Detail Product")
+                    Text(text = "Details du produit")
                 },
                 navigationIcon = {
                     IconButton(onClick = { navigateBack() }){

@@ -1,4 +1,4 @@
-package com.example.chapapp_compose.navigation.model.graphs
+package com.example.chapapp_compose.navigation.graphs
 import android.app.Activity.RESULT_OK
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.IntentSenderRequest

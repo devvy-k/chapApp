@@ -46,12 +46,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.chapapp_compose.features_ui.component.molecules.CustomBox
-import com.example.chapapp_compose.CustomTextField
+import com.example.chapapp_compose.features_ui.component.molecules.CustomTextField
 import com.example.chapapp_compose.R
 import com.example.chapapp_compose.features_ui.auth.AuthState
 import com.example.chapapp_compose.features_ui.auth.SocialMediaLogin
-import com.example.chapapp_compose.navigation.model.graphs.AuthScreen
-import com.example.chapapp_compose.navigation.model.graphs.Graph
+import com.example.chapapp_compose.navigation.graphs.AuthScreen
+import com.example.chapapp_compose.navigation.graphs.Graph
 
 
 @Composable

@@ -1,9 +1,11 @@
-package com.example.chapapp_compose
+package com.example.chapapp_compose.navigation
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -20,21 +22,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.chapapp_compose.features_ui.auth.signin.GoogleAuthUiClient
-import com.example.chapapp_compose.navigation.model.graphs.MainNavGraph
-import kotlinx.coroutines.CoroutineScope
+import com.example.chapapp_compose.navigation.graphs.MainNavGraph
 
 @Composable
 fun MainScreen(
+    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
     googleAuthUiClient: GoogleAuthUiClient,
     onSignOut: () -> Unit
 ) {
     Scaffold(
-        bottomBar = { BottomBar(navController = navController)})
+        modifier = modifier,
+        containerColor = MaterialTheme.colorScheme.primary,
+        bottomBar = { BottomBar(navController = navController) })
     {
-        paddingValues -> Modifier.padding(paddingValues)
-        MainNavGraph(navController = navController,
-            innerPadding = PaddingValues(top = 50.dp),
+        MainNavGraph(
+            navController = navController,
+            innerPadding = it,
             googleAuthUiClient = googleAuthUiClient,
             onSignOut = onSignOut
         )
@@ -46,9 +50,9 @@ fun MainScreen(
 fun BottomBar(navController: NavHostController) {
     val screen = listOf(
         BottomBarScreen.Home,
+        BottomBarScreen.Cart,
         BottomBarScreen.Profile,
         BottomBarScreen.Settings,
-        BottomBarScreen.Cart
     )
 
     val navbackStackEntry by navController.currentBackStackEntryAsState()
@@ -72,7 +76,7 @@ fun BottomBar(navController: NavHostController) {
 @Composable
 fun RowScope.AddItems(screen: BottomBarScreen, currentDestination: NavDestination?, navController: NavController) {
     NavigationBarItem(
-        label = { Text(text = screen.route)},
+        label = { Text(text = screen.title)},
         icon = { Icon(imageVector = screen.icon, contentDescription = "Navigation Icon")},
         selected = currentDestination?.hierarchy?.any{ it.route == screen.route } == true,
         onClick = {

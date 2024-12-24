@@ -31,7 +31,7 @@ fun CartContent(
         modifier = Modifier.fillMaxSize(),
         content = {
             items(products, key = { it.id ?: -1 }) { product ->
-                val strRemoveCart = "Supprimer le produit du panier"
+                val strRemoveCart = "Produit supprimé du panier"
                 ProductCartItem(
                     modifier = Modifier
                         .fillMaxWidth()

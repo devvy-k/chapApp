@@ -3,18 +3,15 @@ package com.example.chapapp_compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.SideEffect
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.example.chapapp_compose.features_ui.auth.signin.GoogleAuthUiClient
-import com.example.chapapp_compose.navigation.model.graphs.RootNavigationGraph
+import com.example.chapapp_compose.navigation.graphs.RootNavigationGraph
 import com.example.chapapp_compose.ui.theme.ChapApp_composeTheme
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.gms.auth.api.identity.Identity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,6 +31,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             ChapApp_composeTheme {
                 Surface{
+                    val systemUiController = rememberSystemUiController()
+                    val statusBarColor = MaterialTheme.colorScheme.primary
+                    SideEffect {
+                        systemUiController.setSystemBarsColor(
+                            color = statusBarColor,
+                            darkIcons = false
+                        )
+                    }
                     RootNavigationGraph(
                         googleAuthUiClient,
                         lifecycleScope = lifecycleScope
@@ -41,21 +46,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ChapApp_composeTheme {
-        Greeting("Android")
     }
 }

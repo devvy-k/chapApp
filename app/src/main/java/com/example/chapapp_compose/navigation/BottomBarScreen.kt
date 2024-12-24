@@ -1,4 +1,4 @@
-package com.example.chapapp_compose
+package com.example.chapapp_compose.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -17,6 +17,11 @@ sealed class BottomBarScreen(
         title = "STORE",
         icon = Icons.Default.Home
     )
+    object Cart : BottomBarScreen(
+        route = "CART",
+        title = "PANIER",
+        icon = Icons.Default.ShoppingCart
+    )
     object Profile : BottomBarScreen(
         route = "PROFILE",
         title = "PROFILE",
@@ -24,12 +29,7 @@ sealed class BottomBarScreen(
     )
     object Settings : BottomBarScreen(
         route = "SETTINGS",
-        title = "SETTINGS",
+        title = "PARAMETRE",
         icon = Icons.Default.Settings
-    )
-    object Cart : BottomBarScreen(
-        route = "CART",
-        title = "CART",
-        icon = Icons.Default.ShoppingCart
     )
 }
